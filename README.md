@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on learning many stuff including backend logic building<br>👯 I’m looking to collaborate on internship and projects<br>🤝 I’m looking for help with experience and learning<br>🌱 I’m currently learning Web Development<br>💬 Ask me about anything you would want to know<br>⚡ Fun fact: I am FUN!😀
+🔭 I’m currently working on learning many stuff including backend logic building<br>👯 I’m looking to collaborate on internship and projects<br>🤝 I’m looking for help with experience and learning<br>🌱 I’m currently learning Web Development and Game Development<br>💬 Ask me about anything you would want to know<br>⚡ Fun fact: I am FUN!😀
 
 
 ## 🌐 Socials:
