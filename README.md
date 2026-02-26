@@ -1,6 +1,11 @@
 # 💫 About Me:
-I am Aparneet Dey, an aspiring Full-Stack Developer building skills and projects. I also like building and learning game development as a hobby.
+Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) My name is Aparneet Dey
+=====================================================================================================================================
 
+Full-Stack Developer and Game Developer
+---------------------------------------
+
+I've been learning and building full-stack projects for the last 2 years and started game development as a hobby recently.
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Aparneet) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:aparnitd@gmail.com) 
