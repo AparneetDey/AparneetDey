@@ -20,17 +20,17 @@ Indie games built with Godot Engine, with pixel art created in Aseprite. Publish
 
 ---
 
-### 🎬 CopyTube - Video Streaming App
+### 🎬 Video Streaming App
 Full-stack video streaming platform with user auth, content upload, and playback features.
 
 `Node.js` `Express` `MongoDB` `React`
 
 ---
 
-### 🛒 BitArcade - Game Library
-Website for searching and listing games from different genres.
+### 🛒 Game Store
+E-commerce storefront for games with product listings, cart, and JWT-based authentication.
 
-`React` `JWT` `Appwrite` `Vite`
+`React` `JWT` `MySQL` `Vite`
 
 ---
 
@@ -88,14 +88,11 @@ Website for searching and listing games from different genres.
 
 ## 📊 GitHub Stats
 
-![](https://github-readme-stats.vercel.app/api?username=AparneetDey&theme=ocean_dark&hide_border=true&include_all_commits=true&count_private=true)
+<!-- Commit streak — powered by git.io/streak-stats (most reliable streak service) -->
+[![GitHub Streak](https://streak-stats.demolab.com?user=AparneetDey&theme=ocean-gradient&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
 
-![](https://nirzak-streak-stats.vercel.app/?user=AparneetDey&theme=ocean_dark&hide_border=true)
-
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=AparneetDey&theme=ocean_dark&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
-
-### 🔝 Top Contributed Repos
-![](https://github-contributor-stats.vercel.app/api?username=AparneetDey&limit=5&theme=dark&combine_all_yearly_contributions=true)
+<!-- Top languages — self-hosted fallback via github-readme-stats official instance -->
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AparneetDey&layout=compact&theme=ocean_dark&hide_border=true&langs_count=8)](https://github.com/AparneetDey)
 
 ---
 
