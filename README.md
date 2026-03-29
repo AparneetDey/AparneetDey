@@ -89,7 +89,7 @@ E-commerce storefront for games with product listings, cart, and JWT-based authe
 ## 📊 GitHub Stats
 
 <!-- Commit streak — powered by git.io/streak-stats (most reliable streak service) -->
-[![GitHub Streak](https://streak-stats.demolab.com?user=AparneetDey&theme=ocean-gradient&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=AparneetDey&theme=blue_navy&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
 
 <!-- Top languages — self-hosted fallback via github-readme-stats official instance -->
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AparneetDey&layout=compact&theme=ocean_dark&hide_border=true&langs_count=8)](https://github.com/AparneetDey)
