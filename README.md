@@ -20,17 +20,17 @@ Indie games built with Godot Engine, with pixel art created in Aseprite. Publish
 
 ---
 
-### 🎬 Video Streaming App
+### 🎬 CopyTube - Video Streaming App
 Full-stack video streaming platform with user auth, content upload, and playback features.
 
 `Node.js` `Express` `MongoDB` `React`
 
 ---
 
-### 🛒 Game Store
-E-commerce storefront for games with product listings, cart, and JWT-based authentication.
+### 🛒 BitArcade - Game Library
+Game library with games of different era and genres.
 
-`React` `JWT` `MySQL` `Vite`
+`React` `JWT` `Appwrite` `Vite`
 
 ---
 
