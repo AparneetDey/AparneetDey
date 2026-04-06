@@ -88,12 +88,18 @@ Game library with games of different era and genres.
 
 ## 📊 GitHub Stats
 
-<!-- Commit streak — powered by git.io/streak-stats (most reliable streak service) -->
-[![GitHub Streak](https://streak-stats.demolab.com?user=AparneetDey&theme=blue_navy&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
-
-<!-- Top languages — self-hosted fallback via github-readme-stats official instance -->
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AparneetDey&layout=compact&theme=ocean_dark&hide_border=true&langs_count=8)](https://github.com/AparneetDey)
-
+<!-- Profile overview card: contributions, repos, join date -->
+![](https://github-readme-stats.vercel.app/api?username=AparneetDey&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
+ 
+<!-- Contribution graph spanning the last year -->
+![](https://github-readme-activity-graph.vercel.app/graph?username=AparneetDey&theme=tokyo-night&hide_border=true&area=true)
+ 
+<!-- Top languages by repo (left) and commit streak (right) — side by side -->
+<p align="center">
+  <img width="45%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AparneetDey&layout=donut&theme=tokyonight&hide_border=true&langs_count=5" />
+  &nbsp;&nbsp;
+  <img width="45%" src="https://streak-stats.demolab.com?user=AparneetDey&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D" />
+</p>
 ---
 
 *Full-stack by day, game dev by night.*
