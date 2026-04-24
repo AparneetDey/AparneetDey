@@ -16,7 +16,17 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 ### 🎮 Godot Games
 Indie games built with Godot Engine, with pixel art created in Aseprite. Published on Itch.io.
 
+- **Fist of Fury** — Side-scrolling beat-em-up with pixel art characters and melee combat mechanics.
+- **InviKnight** — Game Jam entry: a stealth-action platformer built under jam constraints.
+
 `Godot` `GDScript` `Aseprite` `Itch.io`
+
+---
+
+### 📋 Student Grievance & Feedback Portal
+Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.
+
+`React` `Vite` `Spring Boot` `Spring Data JPA` `MySQL`
 
 ---
 
@@ -27,10 +37,17 @@ Full-stack video streaming platform with user auth, content upload, and playback
 
 ---
 
-### 🛒 BitArcade - Game Library
-Game library with games of different era and genres.
+### 🛒 BitArcade v2 - Game Discovery Platform
+Rebuilt from scratch: a full-stack gaming discovery platform with 500K+ games via the RAWG API, secure auth, advanced filtering, and similar game recommendations.
 
-`React` `JWT` `Appwrite` `Vite`
+`React 19` `Vite` `TailwindCSS` `Node.js` `Express` `Appwrite` `RAWG API`
+
+---
+
+### 🏥 Hospital Management System
+Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
+
+`Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
 
 ---
 
@@ -48,6 +65,7 @@ Game library with games of different era and genres.
 **Backend**
 ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=flat-square&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=flat-square&logo=express&logoColor=%2361DAFB)
+![Spring Boot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=flat-square&logo=springboot&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens)
 
 **Databases**
@@ -56,6 +74,7 @@ Game library with games of different era and genres.
 
 **Languages**
 ![Python](https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white)
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=flat-square&logo=c&logoColor=white)
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=flat-square&logo=c%2B%2B&logoColor=white)
 
@@ -82,6 +101,7 @@ Game library with games of different era and genres.
 | 🟢 Learning | TypeScript |
 | 🟢 Learning | Next.js |
 | 🟢 Deepening | GDScript & Game Design |
+| 🟢 Deepening | Java & Spring Boot |
 | 🔵 In Progress | Python (advanced) |
 
 ---
