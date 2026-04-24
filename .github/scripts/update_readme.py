@@ -178,7 +178,7 @@ def build_project_entry(repo: dict, overrides: dict) -> str:
 def build_projects_section(repos: list[dict], config: dict) -> str:
     """Build the full Projects section markdown."""
     now = datetime.now(timezone.utc)
-    timestamp = now.strftime("%-d %B %Y")
+    timestamp = f"{now.day} {now.strftime('%B %Y')}"
 
     overrides = config.get("overrides", {})
     exclude_patterns = config.get("exclude_patterns", [])
@@ -271,6 +271,7 @@ def create_notification_issue(added: list[str], removed: list[str], month_label:
     except urllib_error.HTTPError as exc:
         # Label might not exist — retry without labels
         if exc.code == 422:
+            print('⚠️  Label "readme-update" not found, retrying without labels...')
             payload.pop("labels")
             api_post(f"/repos/{repo_slug}/issues", payload)
             print("✅ Notification issue created (without label).")
@@ -280,7 +281,7 @@ def create_notification_issue(added: list[str], removed: list[str], month_label:
 
 def extract_project_names(section: str) -> set[str]:
     """Extract project display names from a projects section string."""
-    return set(re.findall(r"### .+? \[(.+?)\]", section))
+    return set(re.findall(r"### [^\n]+? \[([^\n]+?)\]", section))
 
 
 # ---------------------------------------------------------------------------
