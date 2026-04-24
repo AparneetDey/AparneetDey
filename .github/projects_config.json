@@ -1,0 +1,89 @@
+{
+  "max_projects": 6,
+  "exclude_patterns": [
+    "_711A", "_711_", "DAA_", "Practical_Lab", "JAVA_711",
+    "CP_711", "FullStack_711", "CC_MINI", "AparneetDey"
+  ],
+  "overrides": {
+    "CopyTube": {
+      "display_name": "CopyTube — Video Streaming App",
+      "description": "Full-stack video streaming platform with user auth, content upload, and playback features.",
+      "category": "fullstack",
+      "icon": "🎬",
+      "tech": ["Node.js", "Express", "MongoDB", "React"],
+      "priority": 75
+    },
+    "Fist-Of-Fury": {
+      "display_name": "Fist of Fury",
+      "description": "Side-scrolling beat-em-up with pixel art characters and melee combat mechanics. Published on Itch.io.",
+      "category": "gamedev",
+      "icon": "🕹️",
+      "tech": ["Godot", "GDScript", "Aseprite", "Itch.io"],
+      "priority": 80
+    },
+    "InviKnight": {
+      "display_name": "InviKnight",
+      "description": "Game Jam entry: a stealth-action platformer built under jam constraints. Published on Itch.io.",
+      "category": "gamedev",
+      "icon": "🕹️",
+      "tech": ["Godot", "GDScript", "Aseprite", "Itch.io"],
+      "priority": 78
+    },
+    "BitArcade-v2": {
+      "display_name": "BitArcade v2 — Game Discovery Platform",
+      "description": "Rebuilt from scratch: a full-stack gaming discovery platform with 500K+ games via the RAWG API, secure auth, advanced filtering, and similar game recommendations.",
+      "category": "fullstack",
+      "icon": "🕹️",
+      "tech": ["React 19", "Vite", "TailwindCSS", "Node.js", "Express", "Appwrite", "RAWG API"],
+      "priority": 90
+    },
+    "Student-Grievance-Feedback-Portal": {
+      "display_name": "Student Grievance & Feedback Portal",
+      "description": "Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.",
+      "category": "fullstack",
+      "icon": "📋",
+      "tech": ["React", "Vite", "Spring Boot", "Spring Data JPA", "MySQL"],
+      "priority": 85
+    },
+    "Hospital-Management": {
+      "display_name": "Hospital Management System",
+      "description": "Java web app for managing patient records and appointments, built with Servlets and a MySQL database.",
+      "category": "java",
+      "icon": "🏥",
+      "tech": ["Java", "Jakarta Servlet", "MySQL", "Maven", "Tomcat"],
+      "priority": 65
+    },
+    "Apple-Website-Using-Threejs": {
+      "display_name": "Apple Website Clone — Three.js",
+      "description": "Pixel-perfect Apple iPhone landing page clone built with Three.js for 3D model rendering and GSAP for smooth animations.",
+      "category": "frontend",
+      "icon": "🍎",
+      "tech": ["React", "Three.js", "GSAP", "Vite", "TailwindCSS"],
+      "priority": 60
+    },
+    "Job-Portal": {
+      "display_name": "Job Portal",
+      "description": "Frontend job listing portal with search, filters, and application tracking UI.",
+      "category": "frontend",
+      "icon": "💼",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "priority": 30
+    },
+    "OtakuVerse": {
+      "display_name": "OtakuVerse",
+      "description": "Anime browsing app built as a React practice project, consuming a public anime API.",
+      "category": "frontend",
+      "icon": "🎌",
+      "tech": ["React", "JavaScript"],
+      "priority": 25
+    },
+    "SaveTheFrog": {
+      "display_name": "Save The Frog",
+      "description": "A small browser-based game built with JavaScript.",
+      "category": "frontend",
+      "icon": "🐸",
+      "tech": ["JavaScript", "HTML", "CSS"],
+      "priority": 20
+    }
+  }
+}

@@ -13,43 +13,54 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 
 ## 🛠 Featured Projects
 
-### 🎮 Godot Games
-Indie games built with Godot Engine, with pixel art created in Aseprite. Published on Itch.io.
+<!-- Projects below are auto-curated monthly by the update-readme workflow.
+     To adjust priorities or descriptions, edit .github/projects_config.json -->
+<!-- PROJECTS:START -->
+*Auto-updated: 24 April 2026*
 
-- **Fist of Fury** — Side-scrolling beat-em-up with pixel art characters and melee combat mechanics.
-- **InviKnight** — Game Jam entry: a stealth-action platformer built under jam constraints.
+### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury) `🆕 Active`
+Side-scrolling beat-em-up with pixel art characters and melee combat mechanics. Published on Itch.io.
 
 `Godot` `GDScript` `Aseprite` `Itch.io`
 
 ---
 
-### 📋 Student Grievance & Feedback Portal
+### 🕹️ [InviKnight](https://github.com/AparneetDey/InviKnight) `🆕 Active`
+Game Jam entry: a stealth-action platformer built under jam constraints. Published on Itch.io.
+
+`Godot` `GDScript` `Aseprite` `Itch.io`
+
+---
+
+### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal) `🆕 Active`
 Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.
 
 `React` `Vite` `Spring Boot` `Spring Data JPA` `MySQL`
 
 ---
 
-### 🎬 CopyTube - Video Streaming App
-Full-stack video streaming platform with user auth, content upload, and playback features.
-
-`Node.js` `Express` `MongoDB` `React`
-
----
-
-### 🛒 BitArcade v2 - Game Discovery Platform
+### 🕹️ [BitArcade v2 — Game Discovery Platform](https://github.com/AparneetDey/BitArcade-v2) `🆕 Active`
 Rebuilt from scratch: a full-stack gaming discovery platform with 500K+ games via the RAWG API, secure auth, advanced filtering, and similar game recommendations.
 
 `React 19` `Vite` `TailwindCSS` `Node.js` `Express` `Appwrite` `RAWG API`
 
 ---
 
-### 🏥 Hospital Management System
+### 🎬 [CopyTube — Video Streaming App](https://github.com/AparneetDey/CopyTube)
+Full-stack video streaming platform with user auth, content upload, and playback features.
+
+`Node.js` `Express` `MongoDB` `React`
+
+---
+
+### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management)
 Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
 
 `Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
 
 ---
+
+<!-- PROJECTS:END -->
 
 ## 💻 Tech Stack
 
