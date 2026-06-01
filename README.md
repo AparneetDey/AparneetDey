@@ -16,7 +16,7 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 <!-- Projects below are auto-curated monthly by the update-readme workflow.
      To adjust priorities or descriptions, edit .github/projects_config.json -->
 <!-- PROJECTS:START -->
-*Auto-updated: 1 May 2026*
+*Auto-updated: 1 June 2026*
 
 ### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury) `🆕 Active`
 Side-scrolling beat-em-up with pixel art characters and melee combat mechanics. Published on Itch.io.
