@@ -16,16 +16,16 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 <!-- Projects below are auto-curated monthly by the update-readme workflow.
      To adjust priorities or descriptions, edit .github/projects_config.json -->
 <!-- PROJECTS:START -->
-*Auto-updated: 1 July 2026*
+*Auto-updated: 1 August 2026*
 
-### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury) `🆕 Active`
+### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury)
 Side-scrolling beat-em-up with pixel art characters and melee combat mechanics. Published on Itch.io.
 
 `Godot` `GDScript` `Aseprite` `Itch.io`
 
 ---
 
-### 🕹️ [InviKnight](https://github.com/AparneetDey/InviKnight) `🆕 Active`
+### 🕹️ [InviKnight](https://github.com/AparneetDey/InviKnight)
 Game Jam entry: a stealth-action platformer built under jam constraints. Published on Itch.io.
 
 `Godot` `GDScript` `Aseprite` `Itch.io`
@@ -39,7 +39,7 @@ Rebuilt from scratch: a full-stack gaming discovery platform with 500K+ games vi
 
 ---
 
-### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal) `🆕 Active`
+### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal)
 Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.
 
 `React` `Vite` `Spring Boot` `Spring Data JPA` `MySQL`
@@ -53,7 +53,7 @@ Full-stack video streaming platform with user auth, content upload, and playback
 
 ---
 
-### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management) `🆕 Active`
+### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management)
 Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
 
 `Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
