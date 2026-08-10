@@ -127,13 +127,16 @@ Java web app for managing patient records and appointments, built with Servlets 
  
 <!-- Top languages by repo (left) and commit streak (right) — side by side -->
 <p align="center">
-  <img width="45%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AparneetDey&layout=donut&theme=tokyonight&hide_border=true&langs_count=5" />
+  <img
+  width="30%"
+  src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AparneetDey&theme=tokyonight"
+/>
   &nbsp;&nbsp;
   <img width="45%" src="https://streak-stats.demolab.com?user=AparneetDey&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D" />
 </p>
 <p align="center" >
-     <a href="https://leetcode.com/u/YOUR_USERNAME/">
-       <img src="https://leetcard.jacoblin.cool/AparneetDey?theme=tokyonight" />
+     <a href="https://leetcode.com/u/AparneetDey/">
+       <img src="https://leetcard.jacoblin.cool/AparneetDey?theme=dark" />
      </a>
 </p>
 ---
