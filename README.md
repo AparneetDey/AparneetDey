@@ -131,9 +131,11 @@ Java web app for managing patient records and appointments, built with Servlets 
   &nbsp;&nbsp;
   <img width="45%" src="https://streak-stats.demolab.com?user=AparneetDey&theme=tokyonight&hide_border=true&date_format=j%20M%5B%20Y%5D" />
 </p>
-<a href="https://leetcode.com/u/YOUR_USERNAME/">
-  <img src="https://leetcard.jacoblin.cool/YOUR_USERNAME?theme=dark" />
-</a>
+<p align="center" >
+     <a href="https://leetcode.com/u/YOUR_USERNAME/">
+       <img src="https://leetcard.jacoblin.cool/AparneetDey?theme=tokyonight" />
+     </a>
+</p>
 ---
 
 *Full-stack by day, game dev by night.*
