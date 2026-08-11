@@ -4,7 +4,7 @@
 
 I've been building full-stack web projects for 2 years and recently picked up game development with Godot as a creative outlet. I enjoy working across the stack — from REST APIs to interactive UIs — and I'm always experimenting with something new.
 
-> 🟢 Open to opportunities (not urgently)
+> 🟢 Open to opportunities
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Aparneet)
 [![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:aparnitd@gmail.com)
@@ -105,18 +105,6 @@ Java web app for managing patient records and appointments, built with Servlets 
 
 ---
 
-## 🗺 Roadmap
-
-| Status | Skill |
-|--------|-------|
-| 🟢 Learning | TypeScript |
-| 🟢 Learning | Next.js |
-| 🟢 Deepening | GDScript & Game Design |
-| 🟢 Deepening | Java & Spring Boot |
-| 🔵 In Progress | Python (advanced) |
-
----
-
 ## 📊 GitHub Stats
 
 <!-- Profile overview card: contributions, repos, join date -->
@@ -139,6 +127,7 @@ Java web app for managing patient records and appointments, built with Servlets 
        <img src="https://leetcard.jacoblin.cool/AparneetDey?theme=dark" />
      </a>
 </p>
+
 ---
 
 *Full-stack by day, game dev by night.*
