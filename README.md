@@ -111,7 +111,7 @@ Java web app for managing patient records and appointments, built with Servlets 
 ![](https://github-readme-stats.vercel.app/api?username=AparneetDey&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage)
  
 <!-- Contribution graph spanning the last year -->
-![](https://github-readme-activity-graph.vercel.app/graph?username=AparneetDey&theme=tokyo-night&hide_border=true&area=true)
+![GitHub Snake](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake-dark.svg)
  
 <!-- Top languages by repo (left) and commit streak (right) — side by side -->
 <p align="center">
