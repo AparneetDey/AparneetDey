@@ -43,7 +43,7 @@
       "category": "fullstack",
       "icon": "📋",
       "tech": ["React", "Vite", "Spring Boot", "Spring Data JPA", "MySQL"],
-      "priority": 85
+      "priority": 15
     },
     "Hospital-Management": {
       "display_name": "Hospital Management System",
@@ -51,7 +51,7 @@
       "category": "java",
       "icon": "🏥",
       "tech": ["Java", "Jakarta Servlet", "MySQL", "Maven", "Tomcat"],
-      "priority": 65
+      "priority": 10
     },
     "Apple-Website-Using-Threejs": {
       "display_name": "Apple Website Clone — Three.js",
@@ -67,7 +67,7 @@
       "category": "frontend",
       "icon": "💼",
       "tech": ["HTML", "CSS", "JavaScript"],
-      "priority": 30
+      "priority": 10
     },
     "OtakuVerse": {
       "display_name": "OtakuVerse",
@@ -75,7 +75,7 @@
       "category": "frontend",
       "icon": "🎌",
       "tech": ["React", "JavaScript"],
-      "priority": 25
+      "priority": 40
     },
     "SaveTheFrog": {
       "display_name": "Save The Frog",
