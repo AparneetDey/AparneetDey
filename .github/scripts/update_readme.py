@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Monthly README updater for AparneetDey's GitHub profile.
+Weekly README updater for AparneetDey's GitHub profile.
 
-Fetches all public repositories, scores and filters them, then regenerates
+Fetches all owned repositories, scores and filters them, then regenerates
 the Featured Projects section in README.md between the <!-- PROJECTS:START -->
 and <!-- PROJECTS:END --> markers.
 
@@ -10,6 +10,7 @@ After updating the README it opens a GitHub Issue to notify the owner.
 """
 
 import json
+import math
 import os
 import re
 import sys
@@ -51,15 +52,10 @@ LANG_TO_CATEGORY = {
     "java": "java",
 }
 
-# Recent-activity thresholds (in days)
-RECENT_3M = 90
-RECENT_6M = 180
-
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-def api_get(path: str) -> dict | list:
+def api_get(path: str, include_headers: bool = False) -> dict | list | tuple[dict | list, dict]:
     """Make an authenticated GET request to the GitHub API."""
     url = f"{GITHUB_API}{path}"
     headers = {
@@ -70,7 +66,10 @@ def api_get(path: str) -> dict | list:
         headers["Authorization"] = f"Bearer {TOKEN}"
     req = request.Request(url, headers=headers)
     with request.urlopen(req) as resp:
-        return json.loads(resp.read())
+        data = json.loads(resp.read())
+        if include_headers:
+            return data, dict(resp.headers.items())
+        return data
 
 
 def api_post(path: str, payload: dict) -> dict:
@@ -103,32 +102,23 @@ def is_excluded(name: str, patterns: list[str]) -> bool:
 
 def score_repo(repo: dict, overrides: dict) -> int:
     """Compute a numeric score for a repository."""
-    name = repo["name"]
-    if name in overrides and "priority" in overrides[name]:
-        return overrides[name]["priority"]
+    score = 0.0
 
-    score = 0
-    score += repo.get("stargazers_count", 0) * 10
+    pushed_at = repo.get("pushed_at") or repo.get("updated_at")
+    if pushed_at:
+        age_days = days_since(pushed_at)
+        score += max(0, 120 - age_days)
 
-    updated = repo.get("updated_at", "")
-    if updated:
-        age = days_since(updated)
-        if age <= RECENT_3M:
-            score += 15
-        elif age <= RECENT_6M:
-            score += 8
+    commit_count = int(repo.get("_commit_count", 0) or 0)
+    score += math.log1p(commit_count) * 35
 
+    score += repo.get("stargazers_count", 0) * 2
     if repo.get("description"):
         score += 5
     if repo.get("topics"):
         score += 3
 
-    # Penalise very simple static-only projects
-    lang = (repo.get("language") or "").lower()
-    if lang in ("css", "html"):
-        score -= 5
-
-    return score
+    return int(score)
 
 
 def detect_category(repo: dict, overrides: dict) -> str:
@@ -157,9 +147,9 @@ def build_project_entry(repo: dict, overrides: dict) -> str:
     repo_url = repo["html_url"]
 
     # Freshness indicator
-    updated = repo.get("updated_at", "")
+    updated = repo.get("pushed_at") or repo.get("updated_at", "")
     freshness = ""
-    if updated and days_since(updated) <= RECENT_3M:
+    if updated and days_since(updated) <= 14:
         freshness = " `🆕 Active`"
 
     lines = [
@@ -193,17 +183,9 @@ def build_projects_section(repos: list[dict], config: dict) -> str:
         and r["name"] != OWNER
     ]
 
-    # Score and sort
+    # Score and sort by activity-based priority
     candidates.sort(key=lambda r: score_repo(r, overrides), reverse=True)
     selected = candidates[:max_projects]
-
-    # Sort selected: game dev first, then by score
-    def sort_key(r):
-        cat = detect_category(r, overrides)
-        cat_order = {"gamedev": 0, "fullstack": 1, "java": 2, "frontend": 3}
-        return (cat_order.get(cat, 9), -score_repo(r, overrides))
-
-    selected.sort(key=sort_key)
 
     lines = [f"*Auto-updated: {timestamp}*", ""]
     for repo in selected:
@@ -236,22 +218,22 @@ def update_readme(new_section: str) -> tuple[bool, str, str]:
     return True, old_section, replacement
 
 
-def create_notification_issue(added: list[str], removed: list[str], month_label: str) -> None:
-    """Open a GitHub Issue summarising the monthly README update."""
+def create_notification_issue(added: list[str], removed: list[str], update_label: str) -> None:
+    """Open a GitHub Issue summarising the weekly README update."""
     repo_slug = f"{OWNER}/{OWNER}"
 
     body_lines = [
-        f"## 📋 Monthly README Update — {month_label}",
+        f"## 📋 Weekly README Update — {update_label}",
         "",
         "The Featured Projects section has been automatically refreshed.",
         "",
     ]
     if added:
-        body_lines += ["**➕ Projects added / kept this month:**"]
+        body_lines += ["**➕ Projects added / kept this week:**"]
         body_lines += [f"- {p}" for p in added]
         body_lines += [""]
     if removed:
-        body_lines += ["**➖ Projects removed this month:**"]
+        body_lines += ["**➖ Projects removed this week:**"]
         body_lines += [f"- {p}" for p in removed]
         body_lines += [""]
     body_lines += [
@@ -261,7 +243,7 @@ def create_notification_issue(added: list[str], removed: list[str], month_label:
     ]
 
     payload = {
-        "title": f"📝 README auto-updated — {month_label}",
+        "title": f"📝 README auto-updated — {update_label}",
         "body": "\n".join(body_lines),
         "labels": ["readme-update"],
     }
@@ -284,15 +266,67 @@ def extract_project_names(section: str) -> set[str]:
     return set(re.findall(r"### [^\n]+? \[([^\n]+?)\]", section))
 
 
+def get_owned_repositories(owner: str) -> list[dict]:
+    """Fetch every owned repository, handling pagination."""
+    repos: list[dict] = []
+    page = 1
+    while True:
+        if TOKEN:
+            path = f"/user/repos?type=owner&sort=updated&per_page=100&page={page}"
+        else:
+            path = f"/users/{owner}/repos?type=owner&sort=updated&per_page=100&page={page}"
+        batch = api_get(path)
+        if not isinstance(batch, list):
+            raise RuntimeError("Unexpected API response while fetching repositories.")
+        if not batch:
+            break
+        repos.extend(batch)
+        page += 1
+    return repos
+
+
+def get_commit_count(owner: str, repo_name: str) -> int:
+    """Fetch total commits for default branch using Link pagination."""
+    path = f"/repos/{owner}/{repo_name}/commits?per_page=1"
+    try:
+        data, headers = api_get(path, include_headers=True)
+    except urllib_error.HTTPError as exc:
+        if exc.code == 409:
+            return 0
+        raise
+
+    if not isinstance(data, list) or not data:
+        return 0
+
+    link_header = headers.get("Link", "")
+    match = re.search(r"[?&]page=(\d+)>;\s*rel=\"last\"", link_header)
+    if match:
+        return int(match.group(1))
+    return len(data)
+
+
+def attach_commit_counts(repos: list[dict], owner: str) -> None:
+    """Attach commit counts to each repo for ranking."""
+    for repo in repos:
+        repo["_commit_count"] = get_commit_count(owner, repo["name"])
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main() -> int:
     print(f"Fetching repositories for {OWNER} …")
     try:
-        repos = api_get(f"/users/{OWNER}/repos?per_page=100&type=owner")
+        repos = get_owned_repositories(OWNER)
     except urllib_error.HTTPError as exc:
         print(f"❌ GitHub API error: {exc}", file=sys.stderr)
+        return 1
+
+    print("Fetching commit counts for repositories …")
+    try:
+        attach_commit_counts(repos, OWNER)
+    except urllib_error.HTTPError as exc:
+        print(f"❌ GitHub API error while fetching commit counts: {exc}", file=sys.stderr)
         return 1
 
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
@@ -312,8 +346,8 @@ def main() -> int:
     added = sorted(new_names - old_names)
     removed = sorted(old_names - new_names)
 
-    month_label = datetime.now(timezone.utc).strftime("%B %Y")
-    create_notification_issue(added, removed, month_label)
+    update_label = datetime.now(timezone.utc).strftime("%d %B %Y")
+    create_notification_issue(added, removed, update_label)
 
     return 0
 
