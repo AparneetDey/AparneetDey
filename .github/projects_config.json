@@ -2,7 +2,7 @@
   "max_projects": 8,
   "exclude_patterns": [
     "_711A", "_711_", "DAA_", "Practical_Lab", "JAVA_711",
-    "CP_711", "FullStack_711", "CC_MINI", "AparneetDey"
+    "CP_711", "FullStack_711", "CC_MINI", "AparneetDey", "614A"
   ],
   "overrides": {
     "CopyTube": {

@@ -33,15 +33,17 @@ Personal portfolio website project.
 
 ---
 
-### 🔗 [ADBMS_614A_2026_2027](https://github.com/AparneetDey/ADBMS_614A_2026_2027) `✨ New Repo · 🆕 Active`
-Public academic/project repository.
+### 🍎 [Apple Website Clone — Three.js](https://github.com/AparneetDey/Apple-Website-Using-Threejs)
+Pixel-perfect Apple iPhone landing page clone built with Three.js for 3D model rendering and GSAP for smooth animations.
 
-`PLpgSQL`
+`React` `Three.js` `GSAP` `Vite` `TailwindCSS`
 
 ---
 
-### 🔗 [SD_24BCS10972_614A_2026_2027](https://github.com/AparneetDey/SD_24BCS10972_614A_2026_2027) `✨ New Repo · 🆕 Active`
-Public software design coursework repository.
+### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management)
+Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
+
+`Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
 
 ---
 
