@@ -11,7 +11,8 @@
       "category": "fullstack",
       "icon": "🎬",
       "tech": ["Node.js", "Express", "MongoDB", "React"],
-      "priority": 75
+      "priority": 75,
+      "completed": true
     },
     "Fist-Of-Fury": {
       "display_name": "Fist of Fury",
@@ -19,7 +20,8 @@
       "category": "gamedev",
       "icon": "🕹️",
       "tech": ["Godot", "GDScript", "Aseprite", "Itch.io"],
-      "priority": 80
+      "priority": 80,
+      "completed": true
     },
     "InviKnight": {
       "display_name": "InviKnight",
@@ -27,7 +29,8 @@
       "category": "gamedev",
       "icon": "🕹️",
       "tech": ["Godot", "GDScript", "Aseprite", "Itch.io"],
-      "priority": 78
+      "priority": 78,
+      "completed": true
     },
     "BitArcade-v2": {
       "display_name": "BitArcade v2 — Game Discovery Platform",
@@ -35,7 +38,8 @@
       "category": "fullstack",
       "icon": "🕹️",
       "tech": ["React 19", "Vite", "TailwindCSS", "Node.js", "Express", "Appwrite", "RAWG API"],
-      "priority": 90
+      "priority": 90,
+      "completed": true
     },
     "Student-Grievance-Feedback-Portal": {
       "display_name": "Student Grievance & Feedback Portal",
@@ -43,7 +47,8 @@
       "category": "fullstack",
       "icon": "📋",
       "tech": ["React", "Vite", "Spring Boot", "Spring Data JPA", "MySQL"],
-      "priority": 15
+      "priority": 15,
+      "completed": true
     },
     "Hospital-Management": {
       "display_name": "Hospital Management System",
@@ -51,7 +56,8 @@
       "category": "java",
       "icon": "🏥",
       "tech": ["Java", "Jakarta Servlet", "MySQL", "Maven", "Tomcat"],
-      "priority": 10
+      "priority": 10,
+      "completed": true
     },
     "Apple-Website-Using-Threejs": {
       "display_name": "Apple Website Clone — Three.js",
@@ -59,7 +65,8 @@
       "category": "frontend",
       "icon": "🍎",
       "tech": ["React", "Three.js", "GSAP", "Vite", "TailwindCSS"],
-      "priority": 60
+      "priority": 60,
+      "completed": true
     },
     "Job-Portal": {
       "display_name": "Job Portal",
@@ -67,7 +74,8 @@
       "category": "frontend",
       "icon": "💼",
       "tech": ["HTML", "CSS", "JavaScript"],
-      "priority": 10
+      "priority": 10,
+      "completed": true
     },
     "OtakuVerse": {
       "display_name": "OtakuVerse",
@@ -75,7 +83,8 @@
       "category": "frontend",
       "icon": "🎌",
       "tech": ["React", "JavaScript"],
-      "priority": 40
+      "priority": 40,
+      "completed": true
     },
     "SaveTheFrog": {
       "display_name": "Save The Frog",
@@ -83,7 +92,8 @@
       "category": "frontend",
       "icon": "🐸",
       "tech": ["JavaScript", "HTML", "CSS"],
-      "priority": 20
+      "priority": 20,
+      "completed": true
     }
   }
 }

@@ -101,46 +101,46 @@ def is_excluded(name: str, patterns: list[str]) -> bool:
 
 
 def score_repo(repo: dict, overrides: dict) -> int:
-    """Compute a numeric score for a repository."""
+    """Compute score by completion status, commit volume, and recency."""
     score = 0.0
     name = repo.get("name", "")
     cfg = overrides.get(name, {})
 
+    # 1) Completed projects first
+    if cfg.get("completed", False):
+        score += 300
+
+    # 2) Recently updated projects
     pushed_at = repo.get("pushed_at") or repo.get("updated_at")
     if pushed_at:
         age_days = days_since(pushed_at)
         score += max(0, 120 - age_days)
 
-    created_at = repo.get("created_at")
-    if created_at:
-        created_days = days_since(created_at)
-        score += max(0, 90 - created_days) * 1.5
-
+    # 3) Total commit volume
     commit_count = int(repo.get("_commit_count", 0) or 0)
     score += math.log1p(commit_count) * 35
-
-    score += repo.get("stargazers_count", 0) * 2
-    score += int(cfg.get("priority", 0) or 0)
-    if repo.get("description"):
-        score += 5
-    if repo.get("topics"):
-        score += 3
 
     return int(score)
 
 
-def detect_category(repo: dict, overrides: dict) -> str:
-    """Return a category string for the repo."""
-    name = repo["name"]
-    if name in overrides and "category" in overrides[name]:
-        return overrides[name]["category"]
-    lang = (repo.get("language") or "").lower()
-    return LANG_TO_CATEGORY.get(lang, "fullstack")
+def is_completed_project(repo: dict, overrides: dict) -> bool:
+    """Return whether a repository is marked as a completed project."""
+    name = repo.get("name", "")
+    return bool(overrides.get(name, {}).get("completed", False))
 
 
-def get_tech_badges(tech_list: list[str]) -> str:
-    """Return a backtick-separated tech tag string."""
-    return " ".join(f"`{t}`" for t in tech_list)
+def get_rank_badges(repo: dict, overrides: dict) -> str:
+    """Build badges for project status and freshness."""
+    badges: list[str] = []
+
+    if is_completed_project(repo, overrides):
+        badges.append("✅ Completed")
+
+    updated = repo.get("pushed_at") or repo.get("updated_at", "")
+    if updated and days_since(updated) <= 14:
+        badges.append("🆕 Active")
+
+    return f" `{' · '.join(badges)}`" if badges else ""
 
 
 def build_project_entry(repo: dict, overrides: dict) -> str:
@@ -153,19 +153,10 @@ def build_project_entry(repo: dict, overrides: dict) -> str:
     icon = cfg.get("icon", "🔗")
     tech_list = cfg.get("tech") or []
     repo_url = repo["html_url"]
-
-    # Freshness indicators
-    updated = repo.get("pushed_at") or repo.get("updated_at", "")
-    created = repo.get("created_at", "")
-    badges: list[str] = []
-    if created and days_since(created) <= 90:
-        badges.append("✨ New Repo")
-    if updated and days_since(updated) <= 14:
-        badges.append("🆕 Active")
-    freshness = f" `{' · '.join(badges)}`" if badges else ""
+    status_badges = get_rank_badges(repo, overrides)
 
     lines = [
-        f"### {icon} [{display_name}]({repo_url}){freshness}",
+        f"### {icon} [{display_name}]({repo_url}){status_badges}",
         f"{description}",
         "",
     ]
@@ -196,7 +187,7 @@ def build_projects_section(repos: list[dict], config: dict) -> str:
         and r["name"] != OWNER
     ]
 
-    # Score and sort by activity-based priority
+    # Score and sort by completion, commit count, and recency
     candidates.sort(key=lambda r: score_repo(r, overrides), reverse=True)
     selected = candidates[:max_projects]
 

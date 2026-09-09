@@ -14,68 +14,68 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 ## 🛠 Featured Projects
 
 <!-- Projects below are auto-refreshed weekly by the update-readme workflow.
-     Ranking is based on recent pushes plus commit volume, and active repos get a 🆕 Active tag.
+     Ranking priority is project completion status, total commits, and recency.
      To adjust names/descriptions/tech tags, edit .github/projects_config.json -->
 <!-- PROJECTS:START -->
 *Auto-updated: 9 September 2026*
 
-### 🔗 [Usly](https://github.com/AparneetDey/Usly) `✨ New Repo · 🆕 Active`
-A website for US.
+### 💼 [Job Portal](https://github.com/AparneetDey/Job-Portal) `✅ Completed`
+Frontend job listing portal with search, filters, and application tracking UI.
 
-`JavaScript`
-
----
-
-### 🔗 [Portfolio](https://github.com/AparneetDey/Portfolio) `✨ New Repo · 🆕 Active`
-Personal portfolio website project.
-
-`JavaScript`
+`HTML` `CSS` `JavaScript`
 
 ---
 
-### 🍎 [Apple Website Clone — Three.js](https://github.com/AparneetDey/Apple-Website-Using-Threejs)
+### 🎌 [OtakuVerse](https://github.com/AparneetDey/OtakuVerse) `✅ Completed`
+Anime browsing app built as a React practice project, consuming a public anime API.
+
+`React` `JavaScript`
+
+---
+
+### 🍎 [Apple Website Clone — Three.js](https://github.com/AparneetDey/Apple-Website-Using-Threejs) `✅ Completed`
 Pixel-perfect Apple iPhone landing page clone built with Three.js for 3D model rendering and GSAP for smooth animations.
 
 `React` `Three.js` `GSAP` `Vite` `TailwindCSS`
 
 ---
 
-### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management)
+### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management) `✅ Completed`
 Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
 
 `Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
 
 ---
 
-### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury)
+### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury) `✅ Completed`
 Side-scrolling beat-em-up with pixel art characters and melee combat mechanics. Published on Itch.io.
 
 `Godot` `GDScript` `Aseprite` `Itch.io`
 
 ---
 
-### 🕹️ [InviKnight](https://github.com/AparneetDey/InviKnight)
+### 🕹️ [InviKnight](https://github.com/AparneetDey/InviKnight) `✅ Completed`
 Game Jam entry: a stealth-action platformer built under jam constraints. Published on Itch.io.
 
 `Godot` `GDScript` `Aseprite` `Itch.io`
 
 ---
 
-### 🕹️ [BitArcade v2 — Game Discovery Platform](https://github.com/AparneetDey/BitArcade-v2)
+### 🕹️ [BitArcade v2 — Game Discovery Platform](https://github.com/AparneetDey/BitArcade-v2) `✅ Completed`
 Rebuilt from scratch: a full-stack gaming discovery platform with 500K+ games via the RAWG API, secure auth, advanced filtering, and similar game recommendations.
 
 `React 19` `Vite` `TailwindCSS` `Node.js` `Express` `Appwrite` `RAWG API`
 
 ---
 
-### 🎬 [CopyTube — Video Streaming App](https://github.com/AparneetDey/CopyTube)
+### 🎬 [CopyTube — Video Streaming App](https://github.com/AparneetDey/CopyTube) `✅ Completed`
 Full-stack video streaming platform with user auth, content upload, and playback features.
 
 `Node.js` `Express` `MongoDB` `React`
 
 ---
 
-### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal)
+### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal) `✅ Completed`
 Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.
 
 `React` `Vite` `Spring Boot` `Spring Data JPA` `MySQL`
