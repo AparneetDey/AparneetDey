@@ -17,7 +17,33 @@ I've been building full-stack web projects for 2 years and recently picked up ga
      Ranking is based on recent pushes plus commit volume, and active repos get a 🆕 Active tag.
      To adjust names/descriptions/tech tags, edit .github/projects_config.json -->
 <!-- PROJECTS:START -->
-*Auto-updated: 1 September 2026*
+*Auto-updated: 9 September 2026*
+
+### 🔗 [Usly](https://github.com/AparneetDey/Usly) `✨ New Repo · 🆕 Active`
+A website for US.
+
+`JavaScript`
+
+---
+
+### 🔗 [Portfolio](https://github.com/AparneetDey/Portfolio) `✨ New Repo · 🆕 Active`
+Personal portfolio website project.
+
+`JavaScript`
+
+---
+
+### 🔗 [ADBMS_614A_2026_2027](https://github.com/AparneetDey/ADBMS_614A_2026_2027) `✨ New Repo · 🆕 Active`
+Public academic/project repository.
+
+`PLpgSQL`
+
+---
+
+### 🔗 [SD_24BCS10972_614A_2026_2027](https://github.com/AparneetDey/SD_24BCS10972_614A_2026_2027) `✨ New Repo · 🆕 Active`
+Public software design coursework repository.
+
+---
 
 ### 🕹️ [Fist of Fury](https://github.com/AparneetDey/Fist-Of-Fury)
 Side-scrolling beat-em-up with pixel art characters and melee combat mechanics. Published on Itch.io.
@@ -40,13 +66,6 @@ Rebuilt from scratch: a full-stack gaming discovery platform with 500K+ games vi
 
 ---
 
-### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal)
-Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.
-
-`React` `Vite` `Spring Boot` `Spring Data JPA` `MySQL`
-
----
-
 ### 🎬 [CopyTube — Video Streaming App](https://github.com/AparneetDey/CopyTube)
 Full-stack video streaming platform with user auth, content upload, and playback features.
 
@@ -54,10 +73,10 @@ Full-stack video streaming platform with user auth, content upload, and playback
 
 ---
 
-### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management)
-Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
+### 📋 [Student Grievance & Feedback Portal](https://github.com/AparneetDey/Student-Grievance-Feedback-Portal)
+Full-stack portal for managing student grievances and feedback, with role-based access for students and admins.
 
-`Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
+`React` `Vite` `Spring Boot` `Spring Data JPA` `MySQL`
 
 ---
 

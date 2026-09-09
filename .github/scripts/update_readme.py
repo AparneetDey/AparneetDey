@@ -103,16 +103,24 @@ def is_excluded(name: str, patterns: list[str]) -> bool:
 def score_repo(repo: dict, overrides: dict) -> int:
     """Compute a numeric score for a repository."""
     score = 0.0
+    name = repo.get("name", "")
+    cfg = overrides.get(name, {})
 
     pushed_at = repo.get("pushed_at") or repo.get("updated_at")
     if pushed_at:
         age_days = days_since(pushed_at)
         score += max(0, 120 - age_days)
 
+    created_at = repo.get("created_at")
+    if created_at:
+        created_days = days_since(created_at)
+        score += max(0, 90 - created_days) * 1.5
+
     commit_count = int(repo.get("_commit_count", 0) or 0)
     score += math.log1p(commit_count) * 35
 
     score += repo.get("stargazers_count", 0) * 2
+    score += int(cfg.get("priority", 0) or 0)
     if repo.get("description"):
         score += 5
     if repo.get("topics"):
@@ -146,11 +154,15 @@ def build_project_entry(repo: dict, overrides: dict) -> str:
     tech_list = cfg.get("tech") or []
     repo_url = repo["html_url"]
 
-    # Freshness indicator
+    # Freshness indicators
     updated = repo.get("pushed_at") or repo.get("updated_at", "")
-    freshness = ""
+    created = repo.get("created_at", "")
+    badges: list[str] = []
+    if created and days_since(created) <= 90:
+        badges.append("✨ New Repo")
     if updated and days_since(updated) <= 14:
-        freshness = " `🆕 Active`"
+        badges.append("🆕 Active")
+    freshness = f" `{' · '.join(badges)}`" if badges else ""
 
     lines = [
         f"### {icon} [{display_name}]({repo_url}){freshness}",
@@ -172,13 +184,14 @@ def build_projects_section(repos: list[dict], config: dict) -> str:
 
     overrides = config.get("overrides", {})
     exclude_patterns = config.get("exclude_patterns", [])
-    max_projects = config.get("max_projects", 6)
+    max_projects = config.get("max_projects", 8)
 
     # Filter
     candidates = [
         r for r in repos
         if not r.get("fork")
         and not r.get("archived")
+        and not r.get("private", False)
         and not is_excluded(r["name"], exclude_patterns)
         and r["name"] != OWNER
     ]
@@ -272,7 +285,7 @@ def get_owned_repositories(owner: str) -> list[dict]:
     page = 1
     while True:
         if TOKEN:
-            path = f"/user/repos?type=owner&sort=updated&per_page=100&page={page}"
+            path = f"/user/repos?visibility=public&type=owner&sort=updated&per_page=100&page={page}"
         else:
             path = f"/users/{owner}/repos?type=owner&sort=updated&per_page=100&page={page}"
         batch = api_get(path)
@@ -322,12 +335,15 @@ def main() -> int:
         print(f"❌ GitHub API error: {exc}", file=sys.stderr)
         return 1
 
-    print("Fetching commit counts for repositories …")
-    try:
-        attach_commit_counts(repos, OWNER)
-    except urllib_error.HTTPError as exc:
-        print(f"❌ GitHub API error while fetching commit counts: {exc}", file=sys.stderr)
-        return 1
+    if TOKEN:
+        print("Fetching commit counts for repositories …")
+        try:
+            attach_commit_counts(repos, OWNER)
+        except urllib_error.HTTPError as exc:
+            print(f"❌ GitHub API error while fetching commit counts: {exc}", file=sys.stderr)
+            return 1
+    else:
+        print("⚠️ No GITHUB_TOKEN found; skipping commit-count scoring.")
 
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
 
