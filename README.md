@@ -13,8 +13,9 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 
 ## 🛠 Featured Projects
 
-<!-- Projects below are auto-curated weekly by the update-readme workflow.
-     To adjust priorities or descriptions, edit .github/projects_config.json -->
+<!-- Projects below are auto-refreshed weekly by the update-readme workflow.
+     Ranking is based on recent pushes plus commit volume, and active repos get a 🆕 Active tag.
+     To adjust names/descriptions/tech tags, edit .github/projects_config.json -->
 <!-- PROJECTS:START -->
 *Auto-updated: 1 September 2026*
 
