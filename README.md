@@ -53,13 +53,6 @@ Full-stack video streaming platform with user auth, content upload, and playback
 
 ---
 
-### 🏥 [Hospital Management System](https://github.com/AparneetDey/Hospital-Management)
-Java web app for managing patient records and appointments, built with Servlets and a MySQL database.
-
-`Java` `Jakarta Servlet` `MySQL` `Maven` `Tomcat`
-
----
-
 <!-- PROJECTS:END -->
 
 ## 💻 Tech Stack
