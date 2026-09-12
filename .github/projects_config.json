@@ -1,5 +1,7 @@
 {
-  "max_projects": 8,
+  "max_projects": 6,
+  "max_per_category": 2,
+  "showcase_min_score": 65,
   "exclude_patterns": [
     "_711A", "_711_", "DAA_", "Practical_Lab", "JAVA_711",
     "CP_711", "FullStack_711", "CC_MINI", "AparneetDey", "614A"
@@ -8,11 +10,20 @@
     "CopyTube": {
       "display_name": "CopyTube — Video Streaming App",
       "description": "Full-stack video streaming platform with user auth, content upload, and playback features.",
-      "category": "fullstack",
+      "category": "backend",
       "icon": "🎬",
       "tech": ["Node.js", "Express", "MongoDB", "React"],
       "priority": 75,
-      "completed": true
+      "completed": true,
+      "status": "SUBSTANTIAL_UNFINISHED",
+      "portfolio_scores": {
+        "technical_depth": 18,
+        "development_effort": 14,
+        "completeness_polish": 12,
+        "engineering_quality": 10,
+        "recent_activity": 4,
+        "portfolio_value": 9
+      }
     },
     "Fist-Of-Fury": {
       "display_name": "Fist of Fury",
@@ -21,7 +32,16 @@
       "icon": "🕹️",
       "tech": ["Godot", "GDScript", "Aseprite", "Itch.io"],
       "priority": 80,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 16,
+        "development_effort": 14,
+        "completeness_polish": 16,
+        "engineering_quality": 10,
+        "recent_activity": 4,
+        "portfolio_value": 8
+      }
     },
     "InviKnight": {
       "display_name": "InviKnight",
@@ -30,7 +50,16 @@
       "icon": "🕹️",
       "tech": ["Godot", "GDScript", "Aseprite", "Itch.io"],
       "priority": 78,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 14,
+        "development_effort": 11,
+        "completeness_polish": 14,
+        "engineering_quality": 9,
+        "recent_activity": 4,
+        "portfolio_value": 8
+      }
     },
     "BitArcade-v2": {
       "display_name": "BitArcade v2 — Game Discovery Platform",
@@ -39,7 +68,16 @@
       "icon": "🕹️",
       "tech": ["React 19", "Vite", "TailwindCSS", "Node.js", "Express", "Appwrite", "RAWG API"],
       "priority": 90,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 23,
+        "development_effort": 18,
+        "completeness_polish": 16,
+        "engineering_quality": 13,
+        "recent_activity": 4,
+        "portfolio_value": 10
+      }
     },
     "Student-Grievance-Feedback-Portal": {
       "display_name": "Student Grievance & Feedback Portal",
@@ -48,7 +86,16 @@
       "icon": "📋",
       "tech": ["React", "Vite", "Spring Boot", "Spring Data JPA", "MySQL"],
       "priority": 15,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 19,
+        "development_effort": 16,
+        "completeness_polish": 15,
+        "engineering_quality": 12,
+        "recent_activity": 5,
+        "portfolio_value": 9
+      }
     },
     "Hospital-Management": {
       "display_name": "Hospital Management System",
@@ -57,7 +104,16 @@
       "icon": "🏥",
       "tech": ["Java", "Jakarta Servlet", "MySQL", "Maven", "Tomcat"],
       "priority": 10,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 15,
+        "development_effort": 13,
+        "completeness_polish": 15,
+        "engineering_quality": 10,
+        "recent_activity": 4,
+        "portfolio_value": 8
+      }
     },
     "Apple-Website-Using-Threejs": {
       "display_name": "Apple Website Clone — Three.js",
@@ -66,7 +122,16 @@
       "icon": "🍎",
       "tech": ["React", "Three.js", "GSAP", "Vite", "TailwindCSS"],
       "priority": 60,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 16,
+        "development_effort": 13,
+        "completeness_polish": 15,
+        "engineering_quality": 10,
+        "recent_activity": 4,
+        "portfolio_value": 8
+      }
     },
     "Job-Portal": {
       "display_name": "Job Portal",
@@ -75,7 +140,16 @@
       "icon": "💼",
       "tech": ["HTML", "CSS", "JavaScript"],
       "priority": 10,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 10,
+        "development_effort": 9,
+        "completeness_polish": 12,
+        "engineering_quality": 7,
+        "recent_activity": 3,
+        "portfolio_value": 6
+      }
     },
     "OtakuVerse": {
       "display_name": "OtakuVerse",
@@ -84,7 +158,16 @@
       "icon": "🎌",
       "tech": ["React", "JavaScript"],
       "priority": 40,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 11,
+        "development_effort": 8,
+        "completeness_polish": 11,
+        "engineering_quality": 7,
+        "recent_activity": 2,
+        "portfolio_value": 6
+      }
     },
     "SaveTheFrog": {
       "display_name": "Save The Frog",
@@ -93,7 +176,16 @@
       "icon": "🐸",
       "tech": ["JavaScript", "HTML", "CSS"],
       "priority": 20,
-      "completed": true
+      "completed": true,
+      "status": "COMPLETED",
+      "portfolio_scores": {
+        "technical_depth": 8,
+        "development_effort": 7,
+        "completeness_polish": 9,
+        "engineering_quality": 6,
+        "recent_activity": 1,
+        "portfolio_value": 5
+      }
     }
   }
 }
