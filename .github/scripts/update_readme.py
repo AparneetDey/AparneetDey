@@ -48,6 +48,15 @@ PORTFOLIO_DIMENSIONS = {
     "portfolio_value": 10,
 }
 
+PORTFOLIO_SHOWCASE_TIEBREAKERS = (
+    "development_effort",
+    "technical_depth",
+    "completeness_polish",
+    "portfolio_value",
+    "engineering_quality",
+    "recent_activity",
+)
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -121,28 +130,36 @@ def score_recent_activity(repo: dict) -> int:
 
 
 def estimate_development_effort(repo: dict) -> int:
-    """Estimate development effort from commit volume and project timespan."""
+    """Estimate development effort from meaningful history signals."""
     commit_count = int(repo.get("_commit_count", 0) or 0)
-    if commit_count <= 0:
-        return 0
+    repo_size = int(repo.get("size", 0) or 0)
+    has_issues = bool(repo.get("has_issues"))
 
-    commit_signal = min(12.0, math.log1p(commit_count) * 2.6)
+    commit_signal = min(8.0, math.log1p(max(0, commit_count)) * 1.9)
     spread_signal = 0.0
     created_at = repo.get("created_at")
     updated_at = repo.get("pushed_at") or repo.get("updated_at")
     if created_at and updated_at:
         spread_days = max(0, days_since(created_at) - days_since(updated_at))
-        spread_signal = min(8.0, spread_days / 45.0)
+        spread_signal = min(6.0, spread_days / 60.0)
 
     iterative_bonus = 0.0
-    if commit_count >= 120:
+    if commit_count >= 200:
         iterative_bonus = 3.0
-    elif commit_count >= 60:
+    elif commit_count >= 90:
         iterative_bonus = 2.0
-    elif commit_count >= 25:
+    elif commit_count >= 35:
         iterative_bonus = 1.0
 
-    return clamp_score(commit_signal + spread_signal + iterative_bonus, 20)
+    implementation_signal = 0.0
+    if repo_size >= 2000:
+        implementation_signal += 2.0
+    elif repo_size >= 700:
+        implementation_signal += 1.0
+    if has_issues:
+        implementation_signal += 1.0
+
+    return clamp_score(commit_signal + spread_signal + iterative_bonus + implementation_signal, 20)
 
 
 def detect_category(repo: dict, overrides: dict) -> str:
@@ -161,11 +178,18 @@ def get_tech_badges(tech_list: list[str]) -> str:
 
 def infer_status(repo: dict, total_score: int) -> str:
     """Infer project status when not manually set."""
-    updated = repo.get("pushed_at") or repo.get("updated_at")
-    if updated and days_since(updated) <= 60 and total_score >= 65:
+    scores = repo.get("_portfolio_scores", {})
+    recent = scores.get("recent_activity", 0)
+    effort = scores.get("development_effort", 0)
+    completeness = scores.get("completeness_polish", 0)
+    technical_depth = scores.get("technical_depth", 0)
+
+    if total_score >= 65 and recent >= 7 and effort >= 10:
         return "ACTIVE"
-    if total_score >= 65:
+    if total_score >= 65 and completeness >= 14:
         return "COMPLETED"
+    if total_score >= 60 and (technical_depth + effort) >= 28:
+        return "SUBSTANTIAL_UNFINISHED"
     return "SUBSTANTIAL_UNFINISHED"
 
 
@@ -175,10 +199,31 @@ def evaluate_portfolio_dimensions(repo: dict, cfg: dict) -> dict[str, int]:
     topics_count = len(repo.get("topics") or [])
     has_description = bool(repo.get("description"))
     has_homepage = bool(repo.get("homepage"))
+    has_issues = bool(repo.get("has_issues"))
+    has_wiki = bool(repo.get("has_wiki"))
+    has_pages = bool(repo.get("has_pages"))
+    repo_size = int(repo.get("size", 0) or 0)
+    text_blob = " ".join([
+        repo.get("name", ""),
+        repo.get("description", "") or "",
+        " ".join(repo.get("topics") or []),
+    ]).lower()
 
     technical_depth = configured.get("technical_depth")
     if technical_depth is None:
-        technical_depth = 6 + min(8, topics_count * 2) + (3 if has_description else 0)
+        depth_terms = [
+            "auth", "oauth", "jwt", "role-based", "api", "backend", "microservice",
+            "database", "sql", "nosql", "redis", "queue", "websocket", "realtime",
+            "state", "algorithm", "infrastructure", "docker", "deployment", "ci",
+        ]
+        depth_hits = sum(1 for term in depth_terms if term in text_blob)
+        technical_depth = (
+            4
+            + min(12, depth_hits * 2)
+            + min(5, topics_count)
+            + (2 if repo_size >= 1500 else 0)
+            + (2 if has_description else 0)
+        )
 
     development_effort = configured.get("development_effort")
     if development_effort is None:
@@ -186,11 +231,29 @@ def evaluate_portfolio_dimensions(repo: dict, cfg: dict) -> dict[str, int]:
 
     completeness_polish = configured.get("completeness_polish")
     if completeness_polish is None:
-        completeness_polish = 6 + (4 if has_description else 0) + (2 if has_homepage else 0)
+        completeness_polish = (
+            4
+            + (5 if has_description else 0)
+            + (4 if has_homepage else 0)
+            + (2 if has_wiki else 0)
+            + (2 if has_pages else 0)
+            + (2 if repo_size >= 700 else 0)
+            + (1 if has_issues else 0)
+        )
 
     engineering_quality = configured.get("engineering_quality")
     if engineering_quality is None:
-        engineering_quality = 5 + min(6, topics_count)
+        quality_terms = [
+            "testing", "architecture", "clean", "modular", "scalable", "error",
+            "validation", "security", "monitoring", "observability",
+        ]
+        quality_hits = sum(1 for term in quality_terms if term in text_blob)
+        engineering_quality = (
+            3
+            + min(7, quality_hits)
+            + min(3, topics_count // 2)
+            + (2 if has_issues else 0)
+        )
 
     recent_activity = configured.get("recent_activity")
     if recent_activity is None:
@@ -198,7 +261,13 @@ def evaluate_portfolio_dimensions(repo: dict, cfg: dict) -> dict[str, int]:
 
     portfolio_value = configured.get("portfolio_value")
     if portfolio_value is None:
-        portfolio_value = 4 + (2 if has_description else 0) + min(4, topics_count)
+        portfolio_value = (
+            2
+            + (2 if has_description else 0)
+            + (2 if has_homepage else 0)
+            + min(2, topics_count // 2)
+            + (2 if (technical_depth >= 15 and engineering_quality >= 8) else 0)
+        )
 
     return {
         "technical_depth": clamp_score(technical_depth, PORTFOLIO_DIMENSIONS["technical_depth"]),
@@ -221,7 +290,22 @@ def score_repo(repo: dict, overrides: dict) -> int:
     repo["_portfolio_total"] = total
     repo["_portfolio_status"] = cfg.get("status") or infer_status(repo, total)
     repo["_portfolio_category"] = detect_category(repo, overrides)
+    top_dims = sorted(scores.items(), key=lambda item: item[1], reverse=True)[:3]
+    repo["_portfolio_reasoning"] = (
+        f"Top strengths: {', '.join(f'{k}={v}' for k, v in top_dims)}; "
+        f"status={repo['_portfolio_status']}; total={total}"
+    )
     return total
+
+
+def repo_sort_key(repo: dict) -> tuple:
+    """Sort key prioritizing score then portfolio-centric tie-breakers."""
+    scores = repo.get("_portfolio_scores", {})
+    return (
+        repo.get("_portfolio_total", 0),
+        *(scores.get(dim, 0) for dim in PORTFOLIO_SHOWCASE_TIEBREAKERS),
+        int(repo.get("_commit_count", 0) or 0),
+    )
 
 
 def get_rank_badges(repo: dict) -> str:
@@ -285,7 +369,7 @@ def build_projects_section(repos: list[dict], config: dict) -> str:
     # Score all eligible repos with portfolio rubric
     for repo in candidates:
         score_repo(repo, overrides)
-    candidates.sort(key=lambda r: r.get("_portfolio_total", 0), reverse=True)
+    candidates.sort(key=repo_sort_key, reverse=True)
 
     # Select showcase-worthy projects with diversity by category
     selected: list[dict] = []

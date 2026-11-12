@@ -14,8 +14,9 @@ I've been building full-stack web projects for 2 years and recently picked up ga
 ## 🛠 Featured Projects
 
 <!-- Projects below are auto-refreshed weekly by the update-readme workflow.
-     Ranking priority is project completion status, total commits, and recency.
-     To adjust names/descriptions/tech tags, edit .github/projects_config.json -->
+     Ranking uses a portfolio rubric: technical depth, development effort, completeness/polish,
+     engineering quality, recent activity, and portfolio value.
+     To adjust names/descriptions/tech tags/scores, edit .github/projects_config.json -->
 <!-- PROJECTS:START -->
 *Auto-updated: 9 September 2026*
 
