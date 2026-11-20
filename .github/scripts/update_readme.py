@@ -68,7 +68,7 @@ def api_get(path: str, include_headers: bool = False) -> dict | list | tuple[dic
         "X-GitHub-Api-Version": "2022-11-28",
     }
     if TOKEN:
-        headers["Authorization"] = f"Bearer {TOKEN}"
+        headers["Authorization"] = "Bearer " + TOKEN
     req = request.Request(url, headers=headers)
     with request.urlopen(req) as resp:
         data = json.loads(resp.read())
@@ -87,7 +87,7 @@ def api_post(path: str, payload: dict) -> dict:
         "Content-Type": "application/json",
     }
     if TOKEN:
-        headers["Authorization"] = f"Bearer {TOKEN}"
+        headers["Authorization"] = "Bearer " + TOKEN
     req = request.Request(url, data=data, headers=headers, method="POST")
     with request.urlopen(req) as resp:
         return json.loads(resp.read())
