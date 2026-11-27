@@ -42,6 +42,14 @@ class ApiAuthenticationTests(unittest.TestCase):
         request = urlopen.call_args.args[0]
         self.assertEqual(request.get_header("Authorization"), "Bearer " + "test-token")
 
+    @patch.object(update_readme, "TOKEN", "test-token")
+    @patch.object(update_readme, "api_get", return_value=[])
+    def test_owned_repositories_uses_owner_endpoint_with_token(self, api_get):
+        update_readme.get_owned_repositories("example-owner")
+        api_get.assert_called_once_with(
+            "/users/example-owner/repos?type=owner&sort=updated&per_page=100&page=1"
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

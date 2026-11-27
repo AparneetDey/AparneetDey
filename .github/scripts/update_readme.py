@@ -474,10 +474,7 @@ def get_owned_repositories(owner: str) -> list[dict]:
     repos: list[dict] = []
     page = 1
     while True:
-        if TOKEN:
-            path = f"/user/repos?visibility=public&type=owner&sort=updated&per_page=100&page={page}"
-        else:
-            path = f"/users/{owner}/repos?type=owner&sort=updated&per_page=100&page={page}"
+        path = f"/users/{owner}/repos?type=owner&sort=updated&per_page=100&page={page}"
         batch = api_get(path)
         if not isinstance(batch, list):
             raise RuntimeError("Unexpected API response while fetching repositories.")
